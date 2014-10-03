@@ -23,16 +23,10 @@ public class Person {
 		name = anyName;
 	}
 	
-	/**
-	 * @return the maxBooksAllowed
-	 */
 	public int getMaxBooksAllowed() {
 		return maxBooksAllowed;
 	}
 
-	/**
-	 * @param maxBooksAllowed the maxBooksAllowed to set
-	 */
 	public void setMaxBooksAllowed(int maxBooksAllowed) {
 		this.maxBooksAllowed = maxBooksAllowed;
 	}	

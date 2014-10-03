@@ -28,4 +28,9 @@ public class Person {
 		this.maximumBooks = maximumBooks;
 	}
 	
+	@Override
+	public String toString() {
+		return this.getName() + " (" + this.getMaximumBooks() + " books)";
+	}
+
 }
