@@ -29,6 +29,11 @@ public class Person {
 
 	public void setMaxBooksAllowed(int maxBooksAllowed) {
 		this.maxBooksAllowed = maxBooksAllowed;
-	}	
+	}
+	
+	public String toString() {
+		return this.getName()+ " has " +this.getMaxBooksAllowed()+ " books!";
+	}
+	
 }
 
