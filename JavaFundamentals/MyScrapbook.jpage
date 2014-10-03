@@ -1,4 +1,7 @@
-Person p = new Person();
-p.setName("Michelle");
-p.setMaximumBooks(999);
-p.toString();
+import java.util.ArrayList 
+
+ArrayList list = new ArrayList();
+
+list.add("test1");
+list.add("test2");
+list
