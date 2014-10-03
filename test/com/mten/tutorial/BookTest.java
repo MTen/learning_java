@@ -21,7 +21,7 @@ public class BookTest extends TestCase {
 		Person p3 = new Person();
 		p3.setName("Elvis");
 		
-		//method to say book is loand to this person
+		//method to say book is loaned to this person
 		
 		b3.setPerson(p3);
 		

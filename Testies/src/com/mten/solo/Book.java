@@ -1,9 +1,12 @@
 package com.mten.solo;
 
+import com.mten.solo.Person;
+
 public class Book {
 	//fields
-	public String author;
-	public String title;
+	String author;
+	String title;
+	Person person;
 	
 	//constructor
 	public Book(String title) {
@@ -23,4 +26,12 @@ public class Book {
 		this.author = author;
 	}
 
+	public void setPerson(Person p3) {
+		this.person = p3;
+		
+	}
+
+	public Person getPerson() {
+		return this.person;
+	}
 }

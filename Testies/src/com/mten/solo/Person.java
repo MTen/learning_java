@@ -7,8 +7,8 @@ public class Person {
 	
 	//constructors
 	
-	public Person() {
-		name = "unknown name";
+	public Person(String name) {
+		this.name = name;
 		maxBooksAllowed = 3;
 	}
 	
