@@ -16,4 +16,21 @@ public class BookTest extends TestCase {
 		assertEquals("Some Weirdo", b2.getAuthor());
 	}
 	
+	public void testGetPerson() {
+		Book b3 = new Book("War and Peace");
+		Person p3 = new Person();
+		p3.setName("Elvis");
+		
+		//method to say book is loand to this person
+		
+		b3.setPerson(p3);
+		
+		//get the name of the person who has the book
+		
+		//Person testPerson = b3.getPerson();
+		//String testName = testPerson.getName();
+		String testName = b3.getPerson().getName();
+		
+		assertEquals("Elvis", testName);
+	}
 }

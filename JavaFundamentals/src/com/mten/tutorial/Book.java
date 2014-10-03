@@ -2,8 +2,9 @@ package com.mten.tutorial;
 
 public class Book {
 	//fields
-	public String title;
-	public String author;
+	String title;
+	String author;
+	Person person;
 	//constructor
 	public Book(String string) {
 		this.title = string;
@@ -17,6 +18,13 @@ public class Book {
 	}
 	public String getTitle() {
 		return title;
+	}
+	public void setPerson(Person person) {
+		this.person = person;
+		
+	}
+	public Person getPerson() {
+		return this.person;
 	}
 	
 	
