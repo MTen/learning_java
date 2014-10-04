@@ -137,4 +137,46 @@ public class MyLibraryTest extends TestCase {
 		assertEquals(1, testBooks.indexOf(b2));
 		
 	}
+	
+	public void testGetAvailableBooks() {
+		setup();
+		addObjects();
+		ArrayList<Book> testBooks = ml.getAvailableBooks();
+		assertEquals(2, testBooks.size());
+		assertEquals(1, testBooks.indexOf(b2));
+		
+		ml.checkOut(b1,p1);
+		testBooks = ml.getAvailableBooks();
+		assertEquals(1, testBooks.size());
+		assertEquals(0, testBooks.indexOf(b2));
+		
+		ml.checkOut(b2,p2);
+		testBooks = ml.getAvailableBooks();
+		assertEquals(0, testBooks.size());
+		
+		
+	}
+	
+	public void testGetUnavailableBooks(){
+		setup();
+		addObjects();
+		assertEquals(0, ml.getUnavailableBooks(p1).size());
+		
+		ml.checkOut(b1, p2);
+		ArrayList<Book> testBooks = ml.getUnavailableBooks(p2);
+		assertEquals(1, testBooks.size());
+		assertEquals(0, testBooks.indexOf(b1));
+		
+		ml.checkOut(b2,p2);
+		testBooks = ml.getUnavailableBooks(p2);
+		assertEquals(2, testBooks.size());
+		assertEquals(1, testBooks.indexOf(b2));
+	}
+	
+	public void testToString() {
+	setup();
+	addObjects();
+	assertEquals("Test: 2 books; 2 people.", ml.toString());
+	}
+	
 }

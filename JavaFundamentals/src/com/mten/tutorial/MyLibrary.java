@@ -1,6 +1,7 @@
 package com.mten.tutorial;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MyLibrary {
 
@@ -76,5 +77,32 @@ public class MyLibrary {
 			}
 		}
 		return result;
+	}
+
+	public ArrayList<Book> getAvailableBooks() {
+		ArrayList<Book> result = new ArrayList<Book>();
+			for (Book aBook : this.getBooks()) {
+				if (aBook.getPerson() == null) {
+					result.add(aBook);
+				}
+			}
+		return result;
+	}
+
+	public ArrayList<Book> getUnavailableBooks(Person p1) {
+		ArrayList<Book> result = new ArrayList<Book>();
+		for (Book aBook : this.getBooks()) {
+			if (aBook.getPerson() != null) {
+				result.add(aBook);
+			}
+		}
+	return result;
+
+	}
+	
+	public String toString() {
+		return this.getName() + ": " + 
+				this.getBooks().size() + " books; " +
+				this.getPeople().size() + " people.";
 	}
 }

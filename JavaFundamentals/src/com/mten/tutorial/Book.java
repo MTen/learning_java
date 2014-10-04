@@ -27,6 +27,16 @@ public class Book {
 		return this.person;
 	}
 	
+	public String toString() {
+		String available;
+		if (this.getPerson() == null) {
+			available = "Available";
+		} else {
+			available = "Checked out to " +
+					this.getPerson().getName();
+		}
+		return this.getTitle() + " by " + this.getAuthor() + "; " + available;
+	}
 	
 	
 }

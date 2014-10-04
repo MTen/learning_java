@@ -33,4 +33,19 @@ public class BookTest extends TestCase {
 		
 		assertEquals("Elvis", testName);
 	}
+	
+	public void testToString() {
+		Book b3 = new Book("War and Peace");
+		Person p3 = new Person();
+		p3.setName("Elvis");
+		
+		assertEquals("War and Peace by unknown author; Available",
+			b3.toString());
+		
+		b3.setPerson(p3);	
+		
+		assertEquals("War and Peace by unknown author; Checked out to Elvis",
+				b3.toString());
+
+	}
 }
