@@ -19,8 +19,16 @@ public class MyLibraryTest extends TestCase {
 		p2 = new Person();
 		p1.setName("Bob");
 		p2.setName("GRAW");
+		p1.setMaximumBooks(1);
 		ml = new MyLibrary("Test");
 	}
+	private void addObjects() {
+		ml.addBook(b1);
+		ml.addBook(b2);
+		ml.addPerson(p1);
+		ml.addPerson(p2);
+	}
+	
 	// test constructor
 	public void testMyLibrary(){
 		MyLibrary ml = new MyLibrary("Test");
@@ -79,10 +87,54 @@ public class MyLibraryTest extends TestCase {
 		assertEquals(0, ml.getPeople().size());
 		
 	}
-	
-
 	//checkOutBook, checkInBook
 	//getAvailableBooks
 	//getCheckedOutBooks
 	//getBooksForPerson
+	
+	public void testCheckout() {
+		//setup objects
+		setup();
+		
+		addObjects();
+		
+		assertTrue("Book did not checkout correctly", 
+				ml.checkOut(b1,p1));
+		assertEquals("Bob", b1.getPerson().getName());
+		
+		assertFalse("Book was already checked out", 
+				ml.checkOut(b1,p2));
+		//Check in
+		assertTrue("Book checkin Failed", ml.checkIn(b1));
+		//Check in a book that wasn't checked out
+		assertFalse("Book was already checked in", ml.checkIn(b1));
+		assertFalse("Book was never checked out", ml.checkIn(b2));
+		
+		//additional tests for maximumBooks
+		setup();
+		addObjects();
+		
+		assertTrue("First book did not checkout", 
+				ml.checkOut(b2, p1));
+		assertFalse("Second book should not have checked out",
+				ml.checkOut(b1, p1));
+	}
+
+	
+	public void testGetBooksForPerson(){
+		setup();
+		addObjects();
+		assertEquals(0, ml.getBooksForPerson(p1).size());
+		
+		ml.checkOut(b1, p2);
+		ArrayList<Book> testBooks = ml.getBooksForPerson(p2);
+		assertEquals(1, testBooks.size());
+		assertEquals(0, testBooks.indexOf(b1));
+		
+		ml.checkOut(b2,p2);
+		testBooks = ml.getBooksForPerson(p2);
+		assertEquals(2, testBooks.size());
+		assertEquals(1, testBooks.indexOf(b2));
+		
+	}
 }
